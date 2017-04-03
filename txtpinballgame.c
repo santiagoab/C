@@ -2,33 +2,30 @@
 #define N 6
 #define M 50
 
-//Gabriel Arroyo Hinojosa 
-//Santiago Alarcos 
-
 //Funciones
 
 //Muestra un titulo con "adornos"
 void titulo(char tabla[][M], int p);
 //Imprime la matriz que se indique en la pantalla
 void vertabla(int tabla[][M], int p);
-//Muestra las estadÌsticas requeridas para la pr·ctica
+//Muestra las estad√≠sticas requeridas para la pr√°ctica
 void stats(int tabla[][M], int p);
 //Muestra una bola caer y muestra el numero de pasos que hace hasta llegar al final de la tabla
 void bola(int tabla[][M], int p);
 //Muestra 10 bolas cayendo y muestra el numero de veces que se ha pasado por la casilla.
 void bolas10(int tabla[][M], int p);
-/*Esta funciÛn se encarga de devolver la tabla a los valores dados inicialmente
-despuÈs de que se hayan modificado en alguno de los procesos anteriores, de esta forma
+/*Esta funci√≥n se encarga de devolver la tabla a los valores dados inicialmente
+despu√©s de que se hayan modificado en alguno de los procesos anteriores, de esta forma
 conseguimos evitar errores.*/
 void tablainicial(int tabla[][M], int p);
-//FunciÛn que encuentra el valor mayor entre dos enteros dados
+//Funci√≥n que encuentra el valor mayor entre dos enteros dados
 int mayor (int a, int b);
 
 main()
 {
-//Variable que guardar· la opciÛn que introduzca el usuario
+//Variable que guardar√° la opci√≥n que introduzca el usuario
 int selec = 0;
-//Matrices que se usar·n durante el programa. Una es un tÌtulo y la otra la tabla a usar
+//Matrices que se usar√°n durante el programa. Una es un t√≠tulo y la otra la tabla a usar
 char decor[N][M] = {
 {'*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*'},
 {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*'},
@@ -94,7 +91,7 @@ int tabla[M][M]= {
 while (selec != 5)
 {
 titulo(decor, N);    //Muestra el titulo incial decorado con asteriscos
-printf("Bienvenido\n");   //Se muestra el men˙ con sus opciones en la pantalla entre las que debemos elegir una
+printf("Bienvenido\n");   //Se muestra el men√∫ con sus opciones en la pantalla entre las que debemos elegir una
     printf("1 - Visualizar el contenido de la tabla de obstaculos por pantalla\n");
     printf("2 - Visualizar estadisticas acerca de la tabla\n");
     printf("3 - Simular la caida de una pelota.\n");
@@ -104,8 +101,8 @@ printf("Bienvenido\n");   //Se muestra el men˙ con sus opciones en la pantalla e
        scanf("%d", &selec);
     printf("\n");
 
-/*El switch comprobar· el valor de la variable select y escoger· la funciÛn deseada.
-el printf dentro de cada caso sirve para dar una separaciÛn respecto el output de la funciÛn siguiente y el resto de datos.*/
+/*El switch comprobar√° el valor de la variable select y escoger√° la funci√≥n deseada.
+el printf dentro de cada caso sirve para dar una separaci√≥n respecto el output de la funci√≥n siguiente y el resto de datos.*/
 switch(selec)
   {
   case 1:
@@ -143,8 +140,8 @@ switch(selec)
 }
 }
 
-/*Esta funciÛn imprime una tabla de car·cteres con tantas filas como indique p y M columnas
- Se utilitzar· para imprimir el tÌtulo del programa*/
+/*Esta funci√≥n imprime una tabla de car√°cteres con tantas filas como indique p y M columnas
+ Se utilitzar√° para imprimir el t√≠tulo del programa*/
 
 void titulo(char tabla[][M], int p)
 {
@@ -159,7 +156,7 @@ for (n = 0; n < p; n++)
    }
 }
 
-//Esta funciÛn imprime cualquier tabla numÈrica dada con 50 columnas y tantas filas como indique p
+//Esta funci√≥n imprime cualquier tabla num√©rica dada con 50 columnas y tantas filas como indique p
 void vertabla(int tabla[][50], int p)
 {
 int n, z;
@@ -181,7 +178,7 @@ printf("\n");
 }
 }
 
-//EstadÌsticas del juego
+//Estad√≠sticas del juego
 void stats(int tabla[][M], int p)
 {
 int n, z, g, j;
@@ -189,22 +186,22 @@ int n, z, g, j;
 //Guardan la longitud de la linea
 int longver, longhor, longdiaai, longdiaad;
 
-/*Matrices que guardar·n la longitud de  las lineas existentes. Damos el valor de 10 a los arrays ya que
-en nuestro juego ser· suficiente para almacenar la cantidad de lineas que tengamos de cada tipo.*/
+/*Matrices que guardar√°n la longitud de  las lineas existentes. Damos el valor de 10 a los arrays ya que
+en nuestro juego ser√° suficiente para almacenar la cantidad de lineas que tengamos de cada tipo.*/
 
 int verticales [10]= {0,0,0,0,0,0,0,0,0,0};
 int horizontales [10]= {0,0,0,0,0,0,0,0,0,0};
 int diagonalaiAds [10]= {0,0,0,0,0,0,0,0,0,0};
 int diagonaladAis [10]= {0,0,0,0,0,0,0,0,0,0};
 
-//En cada celda se guardar· la informaciÛn de las estadisticas para mostrarla por pantalla.
+//En cada celda se guardar√° la informaci√≥n de las estadisticas para mostrarla por pantalla.
 int estadisticas [10]= {0,0,0,0,0,0,0,0,0,0};
 
 for(n = 0; n < p; n++)
 {
    for(z = 0; z < M; z++)
    {
-      //Linea Vertical: Condicion que empieza a contar el n˙mero de lÌneas verticales.
+      //Linea Vertical: Condicion que empieza a contar el n√∫mero de l√≠neas verticales.
       if(tabla[n][z] != 0 && tabla[n+1][z] != 0 && tabla[n][z]%3 != 0)
       {
        if(n+1 == p)
@@ -230,12 +227,12 @@ for(n = 0; n < p; n++)
              }
              verticales [estadisticas[0]] = longver; //Guarda el valor en la matriz vertical
              estadisticas[0]++; /*Cada vez que se cuente una linea vertical
-                                 se sumar· uno al espacio de estadisticas 0
+                                 se sumar√° uno al espacio de estadisticas 0
                                  que guarda el numero de lineas verticales*/
          }
        }
 
-       //Linea horizontal: CondiciÛn que empieza a contar el n˙mero de lÌneas horizontales.
+       //Linea horizontal: Condici√≥n que empieza a contar el n√∫mero de l√≠neas horizontales.
        if(tabla[n][z] != 0 && tabla[n][z+1] != 0 && tabla[n][z]%5 != 0)
        {
         if(z+1 == 50)
@@ -260,11 +257,11 @@ for(n = 0; n < p; n++)
               }
            }
            horizontales [estadisticas[1]] = longhor; //guarda el valor en la matriz horizontal
-           estadisticas[1]++; //cuenta la linea vertical y aÒade 1 al espacio de estadisticas 1
+           estadisticas[1]++; //cuenta la linea vertical y a√±ade 1 al espacio de estadisticas 1
         }
        }
 
-       //Diagonal abajo izquierda arriba derecha:  CondiciÛn que empieza a contar el n˙mero de lÌneas diagonales abajo izquierda arriba derecha.
+       //Diagonal abajo izquierda arriba derecha:  Condici√≥n que empieza a contar el n√∫mero de l√≠neas diagonales abajo izquierda arriba derecha.
        if(tabla[n][z] != 0 && tabla[n+1][z-1] != 0 && tabla[n][z]%7 != 0)
        {
         if(n+1 == p || z-1 == 50)
@@ -291,11 +288,11 @@ for(n = 0; n < p; n++)
                  }
            }
            diagonalaiAds [estadisticas[2]] = longdiaai; //guarda el valor en la matriz diagonalaiAd
-           estadisticas[2]++; //cuenta la linea diagonal y aÒade 1 al espacio de estadisticas 2
+           estadisticas[2]++; //cuenta la linea diagonal y a√±ade 1 al espacio de estadisticas 2
         }
        }
 
-       //Diagonal abajo derecha arriba izquierda:  CondiciÛn que empieza a contar el n˙mero de lÌneas diagonales abajo derecha arriba izquierda.
+       //Diagonal abajo derecha arriba izquierda:  Condici√≥n que empieza a contar el n√∫mero de l√≠neas diagonales abajo derecha arriba izquierda.
        if(tabla[n][z] != 0 && tabla[n+1][z+1] != 0 && tabla[n][z]%11 != 0)
        {
         if(n+1 == p || z+1 == 50)
@@ -322,56 +319,56 @@ for(n = 0; n < p; n++)
                  }
            }
            diagonaladAis [estadisticas[3]] = longdiaad; //guarda el valor en la matriz diagonaladAi
-           estadisticas[3]++; //cuenta la linea diagonal y aÒade 1 al espacio de estadisticas 3
+           estadisticas[3]++; //cuenta la linea diagonal y a√±ade 1 al espacio de estadisticas 3
          }
         }
    }
 }
 
-/*Vertical mas grande: Utilizamos la funciÛn mayor para comparar todas las verticales entre sÌ.
+/*Vertical mas grande: Utilizamos la funci√≥n mayor para comparar todas las verticales entre s√≠.
 Finalmente tendremos la linea vertical mas grande guardada en el espacio de estadisticas 4. */
 for(n = 0; n < 10; n++)
    {
      estadisticas[4] =  mayor(verticales[n], estadisticas[4]);
    }
-/*Horizontal mas grande: Utilizamos la funciÛn mayor para comparar todas las horizontales entre sÌ.
+/*Horizontal mas grande: Utilizamos la funci√≥n mayor para comparar todas las horizontales entre s√≠.
 Finalmente tendremos la linea horizontal mas grande guardada en el espacio de estadisticas 5. */
 for(n = 0; n < 10; n++)
    {
      estadisticas [5] =  mayor(horizontales[n], estadisticas[5]);
    }
-/*Diagonal abajo izquierda arriba derecha mas grande: Utilizamos la funciÛn mayor para comparar todas las diagonales abajo izquierda arriba derecha entre sÌ.
+/*Diagonal abajo izquierda arriba derecha mas grande: Utilizamos la funci√≥n mayor para comparar todas las diagonales abajo izquierda arriba derecha entre s√≠.
 Finalmente tendremos la linea diagonal abajo izquierda arriba derecha mas grande guardada en el espacio de estadisticas 6. */
 for(n = 0; n < 10; n++)
    {
      estadisticas [6] = mayor(diagonalaiAds [n], estadisticas [6]);
    }
-/*Diagonal abajo derecha arriba izquierda mas grande: Utilizamos la funciÛn mayor para comparar todas las diagonales abajo derecha arriba izquierda entre sÌ.
+/*Diagonal abajo derecha arriba izquierda mas grande: Utilizamos la funci√≥n mayor para comparar todas las diagonales abajo derecha arriba izquierda entre s√≠.
 Finalmente tendremos la linea diagonal abajo derecha arriba izquierda mas grande guardada en el espacio de estadisticas 7. */
 for(n = 0; n < 10; n++)
    {
      estadisticas [7] = mayor(diagonaladAis [n], estadisticas [7]);
    }
-/*Sumamos todas las lineas guardadas en estadisticas 0,1,2,3, para tener asÌ el numero total de lÌneas,
+/*Sumamos todas las lineas guardadas en estadisticas 0,1,2,3, para tener as√≠ el numero total de l√≠neas,
 el cual guardaremos en en espacio estadisticas 8*/
 for(n = 0; n<4; n++)
    {
      estadisticas [8] = estadisticas[n] + estadisticas [8];
    }
-/*Comparamos las lÌneas las grandes de cada tipo guardadas en estadisticas 4,5,6,7 entre sÌ con la funciÛn mayor.
-Finalmente tendremos guardada la linea m·s grande en el espacio estadisticas 9.*/
+/*Comparamos las l√≠neas las grandes de cada tipo guardadas en estadisticas 4,5,6,7 entre s√≠ con la funci√≥n mayor.
+Finalmente tendremos guardada la linea m√°s grande en el espacio estadisticas 9.*/
 for(n = 4; n<8; n++)
    {
      estadisticas [9] = mayor(estadisticas[n], estadisticas [9]);
    }
-//Muestra la informaciÛn de todas las estadisticas por pantalla.
+//Muestra la informaci√≥n de todas las estadisticas por pantalla.
 for (n = 0; n < 10; n++)
 {
     printf("s%d: %d \n", n, estadisticas[n]);
 }
 }
 
-void bola(int tabla[][M], int p)  //FunciÛn con la que tiraremos una sola bola.
+void bola(int tabla[][M], int p)  //Funci√≥n con la que tiraremos una sola bola.
 {
 int n, z, pos, pasos;
 char dir;
@@ -381,21 +378,21 @@ printf("Inserta un valor entero (de 1 a 50) para la columna donde empezar: ");
 pos = pos-1; //Restamos 1 al valor pos ya que estamos pidiendo al usuario valores entre 1 y 50, pero la matriz va entre 0 y 49.
 
 fflush(stdin); /*Esta funcion borra el buffer de teclado de nombre Standard Input
-               para evitar errores al introducir el car·cter*/
+               para evitar errores al introducir el car√°cter*/
 
 printf("Introduce la direccion de disparo de la pelota. \n* Derecha(d)\n* Izquierda(i)\nDireccion: ");
    scanf("%c", &dir);
 
 while((dir != 100) && (dir != 105))  /*Si el valor de la direccion no es ni d ni i (100 y 105 en ascii), muestra por pantalla un mensaje de error
-                                      y pide de nuevo la direcciÛn. */
+                                      y pide de nuevo la direcci√≥n. */
    {
    printf("ERROR : La direccion introducida no es correcta\n");
    printf("Introduce la direccion de disparo de la pelota: \n* Derecha(d)\n* Izquierda(i)\nDireccion: ");
       scanf("%c", &dir);
    }
 
-while(pos > 49 || pos < 0)  /*Si el valor de la posiciÛn se sale de los limites de la matriz, muestra por pantalla un mensaje de error
-                              y pide de nuevo la posiciÛn.*/
+while(pos > 49 || pos < 0)  /*Si el valor de la posici√≥n se sale de los limites de la matriz, muestra por pantalla un mensaje de error
+                              y pide de nuevo la posici√≥n.*/
    {
    printf("ERROR : El numero introducido no es correcto\n");
    printf("Inserta un valor entero (de 1 a 50) para la columna donde empezar: ");
@@ -416,11 +413,11 @@ for(n = 0; n < p; n++)
     tabla[n][pos] = 100001;
     }
 pasos++;
- if (tabla[n+1][pos] == 0)  //No hay obstaculo. No se har· nada y se continua con el nuevo valor del for.
+ if (tabla[n+1][pos] == 0)  //No hay obstaculo. No se har√° nada y se continua con el nuevo valor del for.
  {
 
  }
-   else if (dir == 'd')  //Movimientos de la bola cuando la direcciÛn sea derecha.
+   else if (dir == 'd')  //Movimientos de la bola cuando la direcci√≥n sea derecha.
        {
          while (tabla[n+1][pos] == 1)
          {
@@ -451,7 +448,7 @@ pasos++;
            }
          }
        }
-   else     //Movimientos de la bola cuando la direcciÛn sea izquierda.
+   else     //Movimientos de la bola cuando la direcci√≥n sea izquierda.
        {
          while (tabla[n+1][pos] == 1)
          {
@@ -517,16 +514,16 @@ printf("\n");
 }
 }
 
-void bolas10(int tabla[][M], int p) //FunciÛn que muestra el recorrido de diez bolas
+void bolas10(int tabla[][M], int p) //Funci√≥n que muestra el recorrido de diez bolas
 {
 int n, z, pos;
 char dir;
-int disparos_pos[10] = {1, 5, 14, 22, 37, 48, 43, 40, 28, 19};    //Array de posiciÛn de salida de cada bola.
-char disparos_dir[10]= {'i','i','d','i','d','d','i','d','d','i'};   //DirecciÛn de salida de cada bola.
+int disparos_pos[10] = {1, 5, 14, 22, 37, 48, 43, 40, 28, 19};    //Array de posici√≥n de salida de cada bola.
+char disparos_dir[10]= {'i','i','d','i','d','d','i','d','d','i'};   //Direcci√≥n de salida de cada bola.
 
 for (z = 0; z<10; z++) //for que va sacando cada bola.
 {
-dir = disparos_dir[z]; //Determina la direcciÛn de cada bola.
+dir = disparos_dir[z]; //Determina la direcci√≥n de cada bola.
 pos = disparos_pos[z]; //Determina la posicion de cada bola.
 for(n = 0; n < p; n++)
 {
@@ -535,7 +532,7 @@ for(n = 0; n < p; n++)
       {
        //La bola sigue cayendo.
       }
-   else if (dir == 'd')  //Movimientos de la bola con direcciÛn hacia la derecha.
+   else if (dir == 'd')  //Movimientos de la bola con direcci√≥n hacia la derecha.
        {
          while (tabla[n+1][pos] == 1)
          {
@@ -564,7 +561,7 @@ for(n = 0; n < p; n++)
            }
          }
        }
-   else  //Movimientos de la bola con direcciÛn hacia la izquierda.
+   else  //Movimientos de la bola con direcci√≥n hacia la izquierda.
        {
          while (tabla[n+1][pos] == 1)
          {
@@ -617,7 +614,7 @@ printf("\n");
 }
 }
 
-//Devuelve la tabla a los valores iniciales (especialmente ˙til despuÈs de usar funciones como la numero tres).
+//Devuelve la tabla a los valores iniciales (especialmente √∫til despu√©s de usar funciones como la numero tres).
 
 void tablainicial(int tabla[][M], int p)
 {
@@ -684,7 +681,7 @@ for(n = 0; n < p; n++) //for que adjudica a la tabla los valores de la tabla ini
 }
 }
 
-int mayor (int a, int b) //funciÛn que compara entre dos numeros y elije el mas grande.
+int mayor (int a, int b) //funci√≥n que compara entre dos numeros y elije el mas grande.
 {
 if(a>b)
    {
